@@ -1,4 +1,4 @@
-﻿namespace EkaProjektini
+﻿namespace EkaProektini
 {
     internal class Program
     {
