@@ -1,10 +1,10 @@
-﻿namespace EkaProektini
+﻿namespace test2
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            teh1.Run();
-        }   
+            Console.WriteLine("Hello, World!");
+        }
     }
 }
