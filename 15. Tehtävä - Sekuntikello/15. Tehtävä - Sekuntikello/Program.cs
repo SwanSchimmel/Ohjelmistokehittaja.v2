@@ -1,4 +1,4 @@
-namespace _15_tehtava___Sekuntikello
+namespace _15._Tehtävä___Sekuntikello
 {
     internal static class Program
     {
@@ -11,7 +11,7 @@ namespace _15_tehtava___Sekuntikello
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new SekkariForm());
+            Application.Run(new sekkariForm());
         }
     }
 }
