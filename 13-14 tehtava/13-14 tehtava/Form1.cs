@@ -1,4 +1,6 @@
+using System;
 using System.IO;
+using System.Windows.Forms;
 
 namespace _13_14_tehtava
 {
@@ -7,21 +9,29 @@ namespace _13_14_tehtava
         public DiaryForm()
         {
             InitializeComponent();
-            string teksti = "";
-            paivakirjaTB.Text = teksti;
+            paivakirjaTB.Text = string.Empty;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string teksti = "";
+            string entry = $"{DateTime.Now:dd.MM.yyyy HH:mm} {paivakirjaTB.Text}";
 
-            teksti += paivakirjaTB.Text;
-            teksti += " " + DateTime.Now.ToString("dd.MM.yyyy HH:mm") + "\n";
+            string path = "C:/Temp/paivakirja.txt";
+            try
+            {
+                string? dir = Path.GetDirectoryName(path);
+                if (!string.IsNullOrEmpty(dir) && !Directory.Exists(dir))
+                    Directory.CreateDirectory(dir);
 
-            TextWriter text = new StreamWriter("C:/Temp/paivakirja.txt");
-            text.Write(teksti);
-            text.Close();
-            Application.Exit();
+             
+                using var writer = new StreamWriter(path, append: true);
+                writer.WriteLine(entry);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Virhe tallennettaessa: {ex.Message}", "Virhe", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

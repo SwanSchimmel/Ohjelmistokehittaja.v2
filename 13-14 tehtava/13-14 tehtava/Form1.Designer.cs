@@ -34,6 +34,7 @@
             // 
             // paivakirjaTB
             // 
+            paivakirjaTB.BackColor = SystemColors.Info;
             paivakirjaTB.Location = new Point(48, 40);
             paivakirjaTB.Multiline = true;
             paivakirjaTB.Name = "paivakirjaTB";
@@ -42,18 +43,20 @@
             // 
             // TallennaBT
             // 
+            TallennaBT.BackColor = Color.SeaShell;
             TallennaBT.Location = new Point(48, 347);
             TallennaBT.Name = "TallennaBT";
             TallennaBT.Size = new Size(514, 72);
             TallennaBT.TabIndex = 1;
             TallennaBT.Text = "Tallenna päväkirjaan";
-            TallennaBT.UseVisualStyleBackColor = true;
+            TallennaBT.UseVisualStyleBackColor = false;
             TallennaBT.Click += button1_Click;
             // 
             // DiaryForm
             // 
             AutoScaleDimensions = new SizeF(13F, 31F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.Tan;
             ClientSize = new Size(659, 461);
             Controls.Add(TallennaBT);
             Controls.Add(paivakirjaTB);
