@@ -13,24 +13,24 @@ namespace _5._Harjoitus
         {
             InitializeComponent();
         }
-
-        
-
-
-        // Событие срабатывает при каждом нажатии клавиши в текстовом поле
         private void uusiLukuTB_KeyPress(object sender, KeyPressEventArgs e)
         {
-            // Реагируем только на Enter
+            // Пользователь нажал Enter
             if (e.KeyChar == (char)Keys.Enter)
             {
-                // Предотвращаем звук "динь" и перенос строки
-                e.Handled = true;
+                e.Handled = true;  // убираем стандартный "бип" Windows
 
                 string syote = uusiLukuTB.Text.Trim();
 
                 if (syote == "-999")
                 {
-                    if (jono.Count == 0)
+                    // Режим завершения → сортируем и показываем
+                    VastausLB.Text = "";  // очищаем предыдущий результат
+
+                    int[] taulukko = jono.ToArray();     // копируем список в массив
+                    Array.Sort(taulukko);                // сортируем по возрастанию
+
+                    foreach (var jasen in taulukko)
                     {
                         VastausLB.Text = "Список пустой";
                     }
