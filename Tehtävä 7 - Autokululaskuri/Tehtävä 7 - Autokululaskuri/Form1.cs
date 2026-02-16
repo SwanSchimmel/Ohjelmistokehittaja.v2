@@ -26,7 +26,8 @@ namespace Tehtävä_7___Autokululaskuri
 
             kustannukset = (laina + nesteet + vakuutus + pesut + huollot + renkaat + energia + muut) / (kilometrit / 12);
 
-            VastausLB.Text = $"Kustannukset kilometriä kohti ovat: " + kustannukset;
+            VastausLB.Text = "Kustannukset kilometriä kohti ovat: " + kustannukset;
+            VastausLB.Visible = true;
         }
     }
 }

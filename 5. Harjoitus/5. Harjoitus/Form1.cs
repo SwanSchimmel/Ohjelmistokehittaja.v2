@@ -1,3 +1,4 @@
+
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -6,70 +7,64 @@ namespace _5._Harjoitus
 {
     public partial class LukujenJarjestysFM : Form
     {
+        private readonly List<int> jono = new List<int>();
 
-        // хранение введённых чисел
-        private List<int> jono = new List<int>();
         public LukujenJarjestysFM()
         {
             InitializeComponent();
         }
         private void uusiLukuTB_KeyPress(object sender, KeyPressEventArgs e)
         {
-            // Пользователь нажал Enter
             if (e.KeyChar == (char)Keys.Enter)
             {
-                e.Handled = true;  // убираем стандартный "бип" Windows
+                e.Handled = true;  
 
                 string syote = uusiLukuTB.Text.Trim();
 
                 if (syote == "-999")
                 {
-                    // Режим завершения → сортируем и показываем
-                    VastausLB.Text = "";  // очищаем предыдущий результат
+                    VastausLB.Text = "";  
 
-                    int[] taulukko = jono.ToArray();     // копируем список в массив
-                    Array.Sort(taulukko);                // сортируем по возрастанию
+                    int[] taulukko = jono.ToArray();     
+                    Array.Sort(taulukko);                
 
                     foreach (var jasen in taulukko)
                     {
-                        VastausLB.Text = "Список пустой";
-                    }
-                    else
-                    {
-                        // Преобразуем список в массив и сортируем
-                        int[] taulukko = jono.ToArray();
-                        Array.Sort(taulukko);
-
-                        // Формируем строку для вывода
-                        VastausLB.Text = "Отсортировано: " + string.Join("  ", taulukko);
+                        VastausLB.Text += jasen + "  ";  
                     }
 
-                    VastausLB.Visible = true;
-                    // Можно очистить список после вывода (по желанию)
-                    // jono.Clear();
+                    VastausLB.Visible = true;            
+                    // jono.Clear();                     // ← можно раскомментировать, если нужно очистить после вывода
                 }
                 else
                 {
                     if (int.TryParse(syote, out int luku))
                     {
                         jono.Add(luku);
-                        uusiLukuTB.Clear();           // очищаем поле после добавления
+                        uusiLukuTB.Text = "";        
                     }
                     else
                     {
-                        MessageBox.Show("Введите целое число!", "Ошибка");
+                        
+                        VastausLB.Text = "Virhe: anna kokonaisluku!";
+                        VastausLB.Visible = true;
                     }
                 }
             }
-            // Дополнительно — Esc очищает поле
+
+            
             else if (e.KeyChar == (char)Keys.Escape)
             {
-                uusiLukuTB.Clear();
-                e.Handled = true;
+                TyhjaLomake();   
             }
         }
+
+        private void TyhjaLomake()
+        {
+            uusiLukuTB.Text = "";
+           
+        }
+
+
     }
 }
-
-
-
