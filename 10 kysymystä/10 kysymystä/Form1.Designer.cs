@@ -43,41 +43,6 @@
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
-            // KysymysLB
-            // 
-            KysymysLB.AutoSize = true;
-            KysymysLB.Location = new Point(40, 49);
-            KysymysLB.Name = "KysymysLB";
-            KysymysLB.Size = new Size(271, 32);
-            KysymysLB.TabIndex = 0;
-            KysymysLB.Text = "Vastaus 1. kysymykseen:";
-            // 
-            // groupBox1
-            // 
-            groupBox1.Controls.Add(VastausDRB);
-            groupBox1.Controls.Add(VastausCRB);
-            groupBox1.Controls.Add(VastausBRB);
-            groupBox1.Controls.Add(VastausARB);
-            groupBox1.Controls.Add(DummyRB);
-            groupBox1.Location = new Point(317, 49);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(250, 263);
-            groupBox1.TabIndex = 1;
-            groupBox1.TabStop = false;
-            groupBox1.Text = "vastaus";
-            groupBox1.Enter += groupBox1_Enter;
-            // 
-            // DummyRB
-            // 
-            DummyRB.AutoSize = true;
-            DummyRB.Location = new Point(18, 38);
-            DummyRB.Name = "DummyRB";
-            DummyRB.Size = new Size(47, 36);
-            DummyRB.TabIndex = 0;
-            DummyRB.TabStop = true;
-            DummyRB.Text = "E";
-            DummyRB.UseVisualStyleBackColor = true;
-            // 
             // VastausARB
             // 
             VastausARB.AutoSize = true;
@@ -122,6 +87,41 @@
             VastausCRB.Text = "C";
             VastausCRB.UseVisualStyleBackColor = true;
             // 
+            // KysymysLB
+            // 
+            KysymysLB.AutoSize = true;
+            KysymysLB.Location = new Point(40, 49);
+            KysymysLB.Name = "KysymysLB";
+            KysymysLB.Size = new Size(271, 32);
+            KysymysLB.TabIndex = 0;
+            KysymysLB.Text = "Vastaus 1. kysymykseen:";
+            // 
+            // groupBox1
+            // 
+            groupBox1.Controls.Add(VastausDRB);
+            groupBox1.Controls.Add(VastausCRB);
+            groupBox1.Controls.Add(VastausBRB);
+            groupBox1.Controls.Add(VastausARB);
+            groupBox1.Controls.Add(DummyRB);
+            groupBox1.Location = new Point(317, 49);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(250, 263);
+            groupBox1.TabIndex = 1;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "vastaus";
+            groupBox1.Enter += groupBox1_Enter;
+            // 
+            // DummyRB
+            // 
+            DummyRB.AutoSize = true;
+            DummyRB.Location = new Point(18, 38);
+            DummyRB.Name = "DummyRB";
+            DummyRB.Size = new Size(47, 36);
+            DummyRB.TabIndex = 0;
+            DummyRB.TabStop = true;
+            DummyRB.Text = "E";
+            DummyRB.UseVisualStyleBackColor = true;
+            // 
             // VastausLB
             // 
             VastausLB.AutoSize = true;
@@ -130,6 +130,7 @@
             VastausLB.Size = new Size(93, 32);
             VastausLB.TabIndex = 2;
             VastausLB.Text = "Vastaus";
+            VastausLB.Visible = false;
             // 
             // VastauslomakeForm
             // 
@@ -140,7 +141,7 @@
             Controls.Add(groupBox1);
             Controls.Add(KysymysLB);
             Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            Margin = new Padding(5, 5, 5, 5);
+            Margin = new Padding(5);
             Name = "VastauslomakeForm";
             Text = "VastauslomakeForm";
             Load += VastauslomakeForm_Load;
