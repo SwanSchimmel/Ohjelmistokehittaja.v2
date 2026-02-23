@@ -9,7 +9,7 @@ namespace _10_tehtävät___BMI_laskuri
 
         private void LaskeBT_Click(object sender, EventArgs e)
         {
-            double paino = 0, pituus = 0, painoindeksi;
+            double paino = 0, pituus = 0, painbmioindeksi;
             paino = Convert.ToDouble(PainoTB.Text);
             pituus = Convert.ToDouble(PituusTB.Text);
 
