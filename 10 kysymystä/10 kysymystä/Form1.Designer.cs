@@ -34,7 +34,6 @@
             RadioButton VastausCRB;
             KysymysLB = new Label();
             groupBox1 = new GroupBox();
-            DummyRB = new RadioButton();
             VastausLB = new Label();
             VastausARB = new RadioButton();
             VastausBRB = new RadioButton();
@@ -46,29 +45,31 @@
             // VastausARB
             // 
             VastausARB.AutoSize = true;
-            VastausARB.Location = new Point(18, 80);
+            VastausARB.Location = new Point(18, 38);
             VastausARB.Name = "VastausARB";
             VastausARB.Size = new Size(50, 36);
             VastausARB.TabIndex = 1;
             VastausARB.TabStop = true;
             VastausARB.Text = "A";
             VastausARB.UseVisualStyleBackColor = true;
+           
             // 
             // VastausBRB
             // 
             VastausBRB.AutoSize = true;
-            VastausBRB.Location = new Point(19, 122);
+            VastausBRB.Location = new Point(19, 80);
             VastausBRB.Name = "VastausBRB";
             VastausBRB.Size = new Size(49, 36);
             VastausBRB.TabIndex = 2;
             VastausBRB.TabStop = true;
             VastausBRB.Text = "B";
             VastausBRB.UseVisualStyleBackColor = true;
+            VastausBRB.CheckedChanged += VastausBRB_CheckedChanged;
             // 
             // VastausDRB
             // 
             VastausDRB.AutoSize = true;
-            VastausDRB.Location = new Point(13, 206);
+            VastausDRB.Location = new Point(19, 164);
             VastausDRB.Name = "VastausDRB";
             VastausDRB.Size = new Size(52, 36);
             VastausDRB.TabIndex = 4;
@@ -79,7 +80,7 @@
             // VastausCRB
             // 
             VastausCRB.AutoSize = true;
-            VastausCRB.Location = new Point(18, 164);
+            VastausCRB.Location = new Point(18, 122);
             VastausCRB.Name = "VastausCRB";
             VastausCRB.Size = new Size(50, 36);
             VastausCRB.TabIndex = 3;
@@ -102,30 +103,18 @@
             groupBox1.Controls.Add(VastausCRB);
             groupBox1.Controls.Add(VastausBRB);
             groupBox1.Controls.Add(VastausARB);
-            groupBox1.Controls.Add(DummyRB);
             groupBox1.Location = new Point(317, 49);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(250, 263);
+            groupBox1.Size = new Size(222, 224);
             groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
             groupBox1.Text = "vastaus";
             groupBox1.Enter += groupBox1_Enter;
             // 
-            // DummyRB
-            // 
-            DummyRB.AutoSize = true;
-            DummyRB.Location = new Point(18, 38);
-            DummyRB.Name = "DummyRB";
-            DummyRB.Size = new Size(47, 36);
-            DummyRB.TabIndex = 0;
-            DummyRB.TabStop = true;
-            DummyRB.Text = "E";
-            DummyRB.UseVisualStyleBackColor = true;
-            // 
             // VastausLB
             // 
             VastausLB.AutoSize = true;
-            VastausLB.Location = new Point(51, 257);
+            VastausLB.Location = new Point(52, 217);
             VastausLB.Name = "VastausLB";
             VastausLB.Size = new Size(93, 32);
             VastausLB.TabIndex = 2;
@@ -136,14 +125,14 @@
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(641, 377);
+            ClientSize = new Size(589, 309);
             Controls.Add(VastausLB);
             Controls.Add(groupBox1);
             Controls.Add(KysymysLB);
             Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             Margin = new Padding(5);
             Name = "VastauslomakeForm";
-            Text = "VastauslomakeForm";
+            Text = "Vastauslomake";
             Load += VastauslomakeForm_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
@@ -155,7 +144,6 @@
 
         private Label KysymysLB;
         private GroupBox groupBox1;
-        private RadioButton DummyRB;
         private RadioButton VastausARB;
         private Label VastausLB;
     }
