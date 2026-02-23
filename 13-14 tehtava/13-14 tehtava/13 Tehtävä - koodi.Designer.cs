@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             label1 = new Label();
-            nimiTB = new TextBox();
-            vastausLB = new Label();
+            NimiTB = new TextBox();
+            VastausLB = new Label();
             button1 = new Button();
             SuspendLayout();
             // 
@@ -45,27 +45,27 @@
             label1.TabIndex = 0;
             label1.Text = "anna nimesi, niin tarkistan, onko se 50 suosituimam joukossa:";
             // 
-            // nimiTB
+            // NimiTB
             // 
-            nimiTB.BackColor = SystemColors.InactiveBorder;
-            nimiTB.Location = new Point(769, 54);
-            nimiTB.Margin = new Padding(5);
-            nimiTB.Name = "nimiTB";
-            nimiTB.Size = new Size(233, 39);
-            nimiTB.TabIndex = 1;
+            NimiTB.BackColor = SystemColors.InactiveBorder;
+            NimiTB.Location = new Point(769, 54);
+            NimiTB.Margin = new Padding(5);
+            NimiTB.Name = "NimiTB";
+            NimiTB.Size = new Size(233, 39);
+            NimiTB.TabIndex = 1;
             // 
-            // vastausLB
+            // VastausLB
             // 
-            vastausLB.AutoSize = true;
-            vastausLB.Font = new Font("Segoe UI", 13.8F, FontStyle.Italic, GraphicsUnit.Point);
-            vastausLB.Location = new Point(75, 130);
-            vastausLB.Margin = new Padding(5, 0, 5, 0);
-            vastausLB.Name = "vastausLB";
-            vastausLB.Size = new Size(87, 31);
-            vastausLB.TabIndex = 2;
-            vastausLB.Text = "vastaus";
-            vastausLB.Visible = false;
-            vastausLB.Click += label2_Click;
+            VastausLB.AutoSize = true;
+            VastausLB.Font = new Font("Segoe UI", 13.8F, FontStyle.Italic, GraphicsUnit.Point);
+            VastausLB.Location = new Point(75, 130);
+            VastausLB.Margin = new Padding(5, 0, 5, 0);
+            VastausLB.Name = "VastausLB";
+            VastausLB.Size = new Size(87, 31);
+            VastausLB.TabIndex = 2;
+            VastausLB.Text = "vastaus";
+            VastausLB.Visible = false;
+            VastausLB.Click += label2_Click;
             // 
             // button1
             // 
@@ -86,8 +86,8 @@
             BackColor = SystemColors.Info;
             ClientSize = new Size(1060, 253);
             Controls.Add(button1);
-            Controls.Add(vastausLB);
-            Controls.Add(nimiTB);
+            Controls.Add(VastausLB);
+            Controls.Add(NimiTB);
             Controls.Add(label1);
             Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point);
             Margin = new Padding(5);
@@ -100,8 +100,8 @@
         #endregion
 
         private Label label1;
-        private TextBox nimiTB;
-        private Label vastausLB;
+        private TextBox NimiTB;
+        private Label VastausLB;
         private Button button1;
     }
 }

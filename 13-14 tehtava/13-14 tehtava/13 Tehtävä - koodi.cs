@@ -20,50 +20,68 @@ namespace _13_14_tehtava
 
         private void button1_Click(object sender, EventArgs e)
         {
-            vastausLB.Text = string.Empty;
-            vastausLB.Visible = false;
+            VastausLB.Text = "";
+            VastausLB.Visible = false;
 
-            string pojatPath = "C:/Users/jyrili/source/repos/keudaope/Ohjelmoinninopiskelu/pojat.txt";
-            string tytotPath = "C:/Users/jyrili/source/repos/keudaope/Ohjelmoinninopiskelu/tytot.txt";
+            string nimi = NimiTB.Text.Trim();  // убираем лишние пробелы
+
+            if (string.IsNullOrWhiteSpace(nimi))
+            {
+                VastausLB.Text = "Anna nimi ensin!";
+                VastausLB.Visible = true;
+                return;
+            }
 
             try
             {
-                string[] pojat = File.Exists(pojatPath) ? File.ReadAllLines(pojatPath) : Array.Empty<string>();
-                string[] tytot = File.Exists(tytotPath) ? File.ReadAllLines(tytotPath) : Array.Empty<string>();
+                string[] pojat = File.ReadAllLines("C:/Users/jyrili/source/repos/keudaope/Ohjelmoinninopiskelu/pojat.txt");
+                string[] tytot = File.ReadAllLines("C:/Users/jyrili/source/repos/keudaope/Ohjelmoinninopiskelu/tytot.txt");
 
-                string nimi = nimiTB.Text?.Trim() ?? string.Empty;
-                if (string.IsNullOrEmpty(nimi))
+                int sijoitusP = 1;   // позиция среди мальчиков
+                int sijoitusT = 1;   // позиция среди девочек
+
+                bool loytyi = false;
+
+                // Поиск среди мальчиков
+                foreach (string poika in pojat)
                 {
-                    MessageBox.Show("Anna nimi.", "Virhe", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
+                    if (string.Equals(nimi, poika.Trim(), StringComparison.OrdinalIgnoreCase))
+                    {
+                        VastausLB.Text = $"Nimesi on {sijoitusP}. suosituin poikien nimi vuonna 2020";
+                        VastausLB.Visible = true;
+                        loytyi = true;
+                        break;  // нашли → дальше не ищем
+                    }
+                    sijoitusP++;
                 }
 
-                for (int i = 0; i < pojat.Length; i++)
+                // Поиск среди девочек (только если не нашли среди мальчиков)
+                if (!loytyi)
                 {
-                    if (string.Equals(nimi, pojat[i], StringComparison.OrdinalIgnoreCase))
+                    foreach (string tyttö in tytot)
                     {
-                        vastausLB.Text = $"Nimesi on {i + 1}. suosituin poikien nimi vuonna 2020";
-                        vastausLB.Visible = true;
-                        return;
+                        if (string.Equals(nimi, tyttö.Trim(), StringComparison.OrdinalIgnoreCase))
+                        {
+                            VastausLB.Text = $"Nimesi on {sijoitusT}. suosituin tyttöjen nimi vuonna 2020";
+                            VastausLB.Visible = true;
+                            loytyi = true;
+                            break;
+                        }
+                        sijoitusT++;
                     }
                 }
 
-                for (int i = 0; i < tytot.Length; i++)
+                // Если вообще нигде не нашли
+                if (!loytyi)
                 {
-                    if (string.Equals(nimi, tytot[i], StringComparison.OrdinalIgnoreCase))
-                    {
-                        vastausLB.Text = $"Nimesi on {i + 1}. suosituin tyttöjen nimi vuonna 2020";
-                        vastausLB.Visible = true;
-                        return;
-                    }
+                    VastausLB.Text = "Nimesi ei löydy suosituimpien nimien joukosta! :-(";
+                    VastausLB.Visible = true;
                 }
-
-                vastausLB.Text = "Nimesi ei löytynyt suosituimpien nimien joukosta! :-(";
-                vastausLB.Visible = true;
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Tiedoston käsittelyssä tapahtui virhe: {ex.Message}", "Virhe", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                VastausLB.Text = "Virhe tiedoston lukemisessa: " + ex.Message;
+                VastausLB.Visible = true;
             }
         }
 
