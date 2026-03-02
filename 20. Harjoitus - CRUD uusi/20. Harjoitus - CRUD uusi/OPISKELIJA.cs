@@ -19,12 +19,11 @@ namespace _20.Harjoitus___CRUD_uusi
             MySqlCommand komento = new MySqlCommand();
             string lisäkysely = @"
             INSERT INTO yhteystiedot 
-            (etunimi, sukunimi, puhelin, sahkoposti, opiskelijanumero)
+            (etunimi, sukunimi, puhelin, sähköposti, opiskelijanumero)
             VALUES (@enm, @snm, @puh, @eml, @ono)";
 
             komento.CommandText = lisäkysely;
             komento.Connection = yhteys.otaYhteys();
-
             komento.Parameters.Add("@enm", MySqlDbType.VarChar).Value = enimi;
             komento.Parameters.Add("@snm", MySqlDbType.VarChar).Value = snimi;
             komento.Parameters.Add("@puh", MySqlDbType.VarChar).Value = puh;
@@ -58,7 +57,7 @@ namespace _20.Harjoitus___CRUD_uusi
         public DataTable haeOpiskelijat()
         {
             MySqlCommand komento = new MySqlCommand(
-                "SELECT oid, etunimi, sukunimi, puhelin, sahkoposti, opiskelijanumero " +
+                "SELECT oid, etunimi, sukunimi, puhelin, sähköposti, opiskelijanumero " +
                 "FROM yhteystiedot",
                 yhteys.otaYhteys()
             );
@@ -72,9 +71,61 @@ namespace _20.Harjoitus___CRUD_uusi
             return taulukko;
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        // Päivittää opiskelijan tiedot (UPDATE)
+        public bool muokkaaOpiskelijaa(int oid, string enimi, string snimi, string puh, string email, int onro)
         {
-            dataGridView1.DataSource = opiskelija.haeOpiskelijat();
+            MySqlCommand komento = new MySqlCommand();
+            string kysely = @"UPDATE yhteystiedot SET etunimi=@enm, sukunimi=@snm, puhelin=@puh, sähköposti=@eml, opiskelijanumero=@ono WHERE oid=@oid";
+
+            komento.CommandText = kysely;
+            komento.Connection = yhteys.otaYhteys();
+
+            komento.Parameters.Add("@enm", MySqlDbType.VarChar).Value = enimi;
+            komento.Parameters.Add("@snm", MySqlDbType.VarChar).Value = snimi;
+            komento.Parameters.Add("@puh", MySqlDbType.VarChar).Value = puh;
+            komento.Parameters.Add("@eml", MySqlDbType.VarChar).Value = email;
+            komento.Parameters.Add("@ono", MySqlDbType.UInt32).Value = onro;
+            komento.Parameters.Add("@oid", MySqlDbType.UInt32).Value = oid;
+
+            try
+            {
+                yhteys.avaaYhteys();
+                return komento.ExecuteNonQuery() == 1;
+            }
+            catch
+            {
+                return false;
+            }
+            finally
+            {
+                yhteys.suljeYhteys();
+            }
+        }
+
+        // Poistaa opiskelijan (DELETE)
+        public bool poistaOpiskelija(int oid)
+        {
+            MySqlCommand komento = new MySqlCommand();
+            string kysely = @"DELETE FROM yhteystiedot WHERE oid=@oid";
+
+            komento.CommandText = kysely;
+            komento.Connection = yhteys.otaYhteys();
+
+            komento.Parameters.Add("@oid", MySqlDbType.UInt32).Value = oid;
+
+            try
+            {
+                yhteys.avaaYhteys();
+                return komento.ExecuteNonQuery() == 1;
+            }
+            catch
+            {
+                return false;
+            }
+            finally
+            {
+                yhteys.suljeYhteys();
+            }
         }
 
 

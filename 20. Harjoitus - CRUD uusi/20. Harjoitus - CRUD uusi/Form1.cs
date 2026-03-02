@@ -12,10 +12,12 @@ namespace _20.Harjoitus___CRUD_uusi
 {
     public partial class TietotauluForm : Form
     {
-        TietotauluDG.DataSource = OPISKELIJA.haeOpiskelijat();
+        private OPISKELIJA opiskelija = new OPISKELIJA();
         public TietotauluForm()
         {
             InitializeComponent();
+            
+            TietotauluDG.DataSource = opiskelija.haeOpiskelijat();
         }
 
         private void textBox4_TextChanged(object sender, EventArgs e)
@@ -25,24 +27,6 @@ namespace _20.Harjoitus___CRUD_uusi
 
         private void TallennaBT_Click(object sender, EventArgs e)
         {
-            bool onnistui = OPISKELIJA.lisääOpiskelija(
-                EtunimiTB.Text,
-                SukunimiTB.Text,
-                PuhelinTB.Text,
-                SähköpostiTB.Text,
-                int.TryParse(IDTB.Text, out int nro) ? nro : 0
-            );
-
-            if (onnistui)
-            {
-                TietotauluDG.DataSource = OPISKELIJA.haeOpiskelijat();
-                MessageBox.Show("Opiskelija lisätty!");
-            }
-            else
-            {   
-                MessageBox.Show("Lisäys epäonnistui.");
-            }
-
             string enimi = EtunimiTB.Text.Trim();
             string snimi = SukunimiTB.Text.Trim();
             string puhelin = PuhelinTB.Text.Trim();
@@ -52,7 +36,7 @@ namespace _20.Harjoitus___CRUD_uusi
                 string.IsNullOrWhiteSpace(snimi) ||
                 string.IsNullOrWhiteSpace(puhelin) ||
                 string.IsNullOrWhiteSpace(email) ||
-                !int.TryParse(ONroTB.Text.Trim(), out int oNro))
+                !int.TryParse(OpiskelijanroTB.Text.Trim(), out int oNro))
             {
                 MessageBox.Show(
                     "Kaikki kentät ovat pakollisia!\nEtu- ja sukunimi, puhelin, sähköposti ja opiskelijanumero.",
@@ -61,15 +45,15 @@ namespace _20.Harjoitus___CRUD_uusi
                 return;
             }
 
-            bool onnistui = OPISKELIJA.lisääOpiskelija(enimi, snimi, puhelin, email, oNro);
+            bool onnistui = opiskelija.lisääOpiskelija(enimi, snimi, puhelin, email, oNro);
 
             if (onnistui)
             {
-                TietotauluDG.DataSource = OPISKELIJA.haeOpiskelijat();
+                TietotauluDG.DataSource = opiskelija.haeOpiskelijat();
                 MessageBox.Show("Uusi opiskelija lisätty onnistuneesti!",
                     "Lisäys onnistui", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                TyhjennäBT.PerformClick(); // очищаем поля после успеха
+                TyhjennäBT.PerformClick(); 
             }
             else
             {
@@ -84,7 +68,7 @@ namespace _20.Harjoitus___CRUD_uusi
             SukunimiTB.Text = "";
             PuhelinTB.Text = "";
             SähköpostiTB.Text = "";
-            ONroTB.Text = "";
+            OpiskelijanroTB.Text = "";
             // Если есть поле для ID при редактировании
             if (IDTB != null) IDTB.Text = "";
         }
@@ -107,18 +91,18 @@ namespace _20.Harjoitus___CRUD_uusi
                 string.IsNullOrWhiteSpace(snimi) ||
                 string.IsNullOrWhiteSpace(puhelin) ||
                 string.IsNullOrWhiteSpace(email) ||
-                !int.TryParse(ONroTB.Text.Trim(), out int oNro))
+                !int.TryParse(OpiskelijanroTB.Text.Trim(), out int oNro))
             {
                 MessageBox.Show("Kaikki kentät ovat pakollisia!",
                     "Virhe – tyhjiä kenttiä", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            bool onnistui = OPISKELIJA.muokkaaOpiskelijaa(oid, enimi, snimi, puhelin, email, oNro);
+            bool onnistui = opiskelija.muokkaaOpiskelijaa(oid, enimi, snimi, puhelin, email, oNro);
 
             if (onnistui)
             {
-                TietotauluDG.DataSource = OPISKELIJA.haeOpiskelijat();
+                TietotauluDG.DataSource = opiskelija.haeOpiskelijat();
                 MessageBox.Show("Opiskelijan tiedot päivitetty onnistuneesti!",
                     "Päivitys onnistui", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -143,11 +127,11 @@ namespace _20.Harjoitus___CRUD_uusi
             if (MessageBox.Show("Haluatko varmasti poistaa opiskelijan?",
                 "Vahvista poisto", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                bool onnistui = OPISKELIJA.poistaOpiskelija(oid);
+                bool onnistui = opiskelija.poistaOpiskelija(oid);
 
                 if (onnistui)
                 {
-                    TietotauluDG.DataSource = OPISKELIJA.haeOpiskelijat();
+                    TietotauluDG.DataSource = opiskelija.haeOpiskelijat();
                     MessageBox.Show("Opiskelija poistettu onnistuneesti.",
                         "Poisto onnistui", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     TyhjennäBT.PerformClick();
@@ -157,7 +141,27 @@ namespace _20.Harjoitus___CRUD_uusi
                     MessageBox.Show("Poisto epäonnistui.",
                         "Virhe poistossa", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-            }   
+            }
+        }
+
+        private void TietotauluForm_Load(object sender, EventArgs e)
+        {
+            TietotauluDG.DataSource = opiskelija.haeOpiskelijat();
+        }
+
+        private void TietotauluDG_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0) // защита от клика по заголовку
+            {
+                DataGridViewRow row = TietotauluDG.Rows[e.RowIndex];
+
+                IDTB.Text = row.Cells["oid"].Value?.ToString() ?? "";
+                EtunimiTB.Text = row.Cells["etunimi"].Value?.ToString() ?? "";
+                SukunimiTB.Text = row.Cells["sukunimi"].Value?.ToString() ?? "";
+                PuhelinTB.Text = row.Cells["puhelin"].Value?.ToString() ?? "";
+                SähköpostiTB.Text = row.Cells["sahkoposti"].Value?.ToString() ?? "";
+                OpiskelijanroTB.Text = row.Cells["opiskelijanumero"].Value?.ToString() ?? "";
+            }
         }
     }
 }

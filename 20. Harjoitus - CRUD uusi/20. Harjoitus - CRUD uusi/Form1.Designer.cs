@@ -55,15 +55,17 @@
             this.TietotauluDG.GridColor = System.Drawing.Color.Honeydew;
             this.TietotauluDG.Location = new System.Drawing.Point(12, 292);
             this.TietotauluDG.Name = "TietotauluDG";
+            this.TietotauluDG.ReadOnly = true;
             this.TietotauluDG.RowHeadersWidth = 51;
             this.TietotauluDG.RowTemplate.Height = 24;
             this.TietotauluDG.Size = new System.Drawing.Size(1280, 478);
             this.TietotauluDG.TabIndex = 0;
+            this.TietotauluDG.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.TietotauluDG_CellClick);
             // 
             // IDTB
             // 
             this.IDTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.IDTB.Location = new System.Drawing.Point(152, 36);
+            this.IDTB.Location = new System.Drawing.Point(180, 36);
             this.IDTB.Name = "IDTB";
             this.IDTB.Size = new System.Drawing.Size(294, 34);
             this.IDTB.TabIndex = 5;
@@ -86,7 +88,7 @@
             this.IDLB.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.IDLB.Location = new System.Drawing.Point(41, 36);
             this.IDLB.Name = "IDLB";
-            this.IDLB.Size = new System.Drawing.Size(48, 36);
+            this.IDLB.Size = new System.Drawing.Size(38, 29);
             this.IDLB.TabIndex = 11;
             this.IDLB.Text = "ID";
             // 
@@ -132,14 +134,14 @@
             this.EtunimiLB.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.EtunimiLB.Location = new System.Drawing.Point(41, 93);
             this.EtunimiLB.Name = "EtunimiLB";
-            this.EtunimiLB.Size = new System.Drawing.Size(125, 36);
+            this.EtunimiLB.Size = new System.Drawing.Size(100, 29);
             this.EtunimiLB.TabIndex = 16;
             this.EtunimiLB.Text = "Etunimi";
             // 
             // EtunimiTB
             // 
             this.EtunimiTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.EtunimiTB.Location = new System.Drawing.Point(152, 93);
+            this.EtunimiTB.Location = new System.Drawing.Point(180, 93);
             this.EtunimiTB.Name = "EtunimiTB";
             this.EtunimiTB.Size = new System.Drawing.Size(294, 34);
             this.EtunimiTB.TabIndex = 15;
@@ -150,14 +152,14 @@
             this.SukunimiLB.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.SukunimiLB.Location = new System.Drawing.Point(41, 151);
             this.SukunimiLB.Name = "SukunimiLB";
-            this.SukunimiLB.Size = new System.Drawing.Size(150, 36);
+            this.SukunimiLB.Size = new System.Drawing.Size(120, 29);
             this.SukunimiLB.TabIndex = 18;
             this.SukunimiLB.Text = "Sukunimi";
             // 
             // SukunimiTB
             // 
             this.SukunimiTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.SukunimiTB.Location = new System.Drawing.Point(152, 151);
+            this.SukunimiTB.Location = new System.Drawing.Point(180, 151);
             this.SukunimiTB.Name = "SukunimiTB";
             this.SukunimiTB.Size = new System.Drawing.Size(294, 34);
             this.SukunimiTB.TabIndex = 17;
@@ -168,14 +170,14 @@
             this.OpiskelijanroLB.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.OpiskelijanroLB.Location = new System.Drawing.Point(547, 151);
             this.OpiskelijanroLB.Name = "OpiskelijanroLB";
-            this.OpiskelijanroLB.Size = new System.Drawing.Size(211, 36);
+            this.OpiskelijanroLB.Size = new System.Drawing.Size(169, 29);
             this.OpiskelijanroLB.TabIndex = 24;
             this.OpiskelijanroLB.Text = "Opiskelijanro";
             // 
             // OpiskelijanroTB
             // 
             this.OpiskelijanroTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.OpiskelijanroTB.Location = new System.Drawing.Point(658, 151);
+            this.OpiskelijanroTB.Location = new System.Drawing.Point(731, 149);
             this.OpiskelijanroTB.Name = "OpiskelijanroTB";
             this.OpiskelijanroTB.Size = new System.Drawing.Size(294, 34);
             this.OpiskelijanroTB.TabIndex = 23;
@@ -186,14 +188,14 @@
             this.SähköpostiLB.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.SähköpostiLB.Location = new System.Drawing.Point(547, 93);
             this.SähköpostiLB.Name = "SähköpostiLB";
-            this.SähköpostiLB.Size = new System.Drawing.Size(179, 36);
+            this.SähköpostiLB.Size = new System.Drawing.Size(143, 29);
             this.SähköpostiLB.TabIndex = 22;
             this.SähköpostiLB.Text = "Sähköposti";
             // 
             // SähköpostiTB
             // 
             this.SähköpostiTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.SähköpostiTB.Location = new System.Drawing.Point(658, 93);
+            this.SähköpostiTB.Location = new System.Drawing.Point(731, 91);
             this.SähköpostiTB.Name = "SähköpostiTB";
             this.SähköpostiTB.Size = new System.Drawing.Size(294, 34);
             this.SähköpostiTB.TabIndex = 21;
@@ -204,14 +206,14 @@
             this.PuhelinLB.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.PuhelinLB.Location = new System.Drawing.Point(547, 36);
             this.PuhelinLB.Name = "PuhelinLB";
-            this.PuhelinLB.Size = new System.Drawing.Size(126, 36);
+            this.PuhelinLB.Size = new System.Drawing.Size(101, 29);
             this.PuhelinLB.TabIndex = 20;
             this.PuhelinLB.Text = "Puhelin";
             // 
             // PuhelinTB
             // 
             this.PuhelinTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.PuhelinTB.Location = new System.Drawing.Point(658, 38);
+            this.PuhelinTB.Location = new System.Drawing.Point(731, 36);
             this.PuhelinTB.Name = "PuhelinTB";
             this.PuhelinTB.Size = new System.Drawing.Size(294, 34);
             this.PuhelinTB.TabIndex = 19;
@@ -241,6 +243,7 @@
             this.Controls.Add(this.TietotauluDG);
             this.Name = "TietotauluForm";
             this.Text = "Tietotaulu";
+            this.Load += new System.EventHandler(this.TietotauluForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.TietotauluDG)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

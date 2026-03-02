@@ -12,7 +12,7 @@ namespace _20.Harjoitus___CRUD_uusi
     {
         // Рекомендуется не хранить пароль в коде в реальных проектах
         private MySqlConnection yhteys = new MySqlConnection(
-            "datasource=localhost;port=3306;username=root;password=;database=opiskelijat"
+            "datasource=localhost;port=3306;username=root;password=;database=opiskelija"
         );
 
         public MySqlConnection otaYhteys()
