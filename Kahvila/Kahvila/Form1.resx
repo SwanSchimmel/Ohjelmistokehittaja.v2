@@ -118,9 +118,12 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="meistaLB.Text" xml:space="preserve">
-    <value>Keudan oppilaskunnan kahvila palvelee luokassa 320 välituntisin 9:00 - 14:30 joka päivä maanantaista torstaisin ja perjantaisin 9:00-12:30.
+    <value>9:00 14:30 joka päivä maanantaista torstaisin ja perjantaisin \n
 
-Keudan oppilaskunnan kahvilasta saa lämpimien juomien lisäksi virvokkeita sekä pientä purtavaa sekä makeisia Tervetuloa tutustumaan!
+9:00 12:30. \n\n Keudan oppilaskunnan kahvilasta saa lämpimien \n
+
+juomien lisäksi virvokkeita sekä pientä purtavaa sekä makeisia \n
+Tervetuloa tutustumaan!
 </value>
   </data>
 </root>
