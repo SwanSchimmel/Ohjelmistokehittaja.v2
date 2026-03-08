@@ -20,7 +20,7 @@ namespace Hotelliohjelman
 
         public void openConnection()
         {
-            if (connection.State == System.Data.ConnectionState.Closed)
+            if (connection.State == ConnectionState.Closed)
             {
                 connection.Open();
             }
@@ -28,7 +28,7 @@ namespace Hotelliohjelman
 
         public void closeConnection()
         {
-        if (connection.State == System.Data.ConnectionState.Open)
+        if (connection.State == ConnectionState.Open)
         {
             connection.Close();
         }

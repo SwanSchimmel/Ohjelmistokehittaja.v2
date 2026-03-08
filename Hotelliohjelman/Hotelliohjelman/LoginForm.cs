@@ -24,6 +24,7 @@ namespace Hotelliohjelman
             DataTable table = new DataTable();
             MySqlDataAdapter adapter = new MySqlDataAdapter();
             MySqlCommand command = new MySqlCommand("SELECT * FROM `users` WHERE `username` = @username AND `password` = @password", connect.getConnection());
+            
             String query = "SELECT * FROM `users` WHERE `username`=@usn AND `password`=@pass";
 
             command.CommandText = query;

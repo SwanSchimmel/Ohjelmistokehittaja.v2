@@ -19,26 +19,26 @@ namespace _18._Tehtävä
         {
             if (vastuuhloCB.SelectedIndex == -1 || yhteys.Rows.Count == 0) return;
 
-            YhteysLB.Text = yhteys.Rows[vastuuhloCB.SelectedIndex]["VTitteli"].ToString() +
+            TitteliLB.Text = yhteys.Rows[vastuuhloCB.SelectedIndex]["VTitteli"].ToString() +
                             " - " +
                             yhteys.Rows[vastuuhloCB.SelectedIndex]["VSijainti"].ToString();
 
-            emailLB.Text = yhteys.Rows[vastuuhloCB.SelectedIndex]["VSahkoposti"].ToString();
-            phoneLB.Text = yhteys.Rows[vastuuhloCB.SelectedIndex]["VPuhelin"].ToString();
+            SähköpostiLB.Text = yhteys.Rows[vastuuhloCB.SelectedIndex]["VSahkoposti"].ToString();
+            PuhLB.Text = yhteys.Rows[vastuuhloCB.SelectedIndex]["VPuhelin"].ToString();
         }
 
         private void OppilaitosCB_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (oppilaitoksetCB.SelectedIndex == -1) return;
+            if (OppilaitosCB.SelectedIndex == -1) return;
 
             // Получаем OID выбранного заведения
-            string viite = oppilaitos.Rows[oppilaitoksetCB.SelectedIndex]["OID"].ToString();
+            string viite = oppilaitos.Rows[OppilaitosCB.SelectedIndex]["OID"].ToString();
 
             // Заполняем информационные метки
-            katuosoiteLB.Text = oppilaitos.Rows[oppilaitoksetCB.SelectedIndex]["OKatuosoite"].ToString();
-            PostinumeroLB.Text = oppilaitos.Rows[oppilaitoksetCB.SelectedIndex]["OPostinumero"].ToString();
-            PostitoimipaikkaLB.Text = oppilaitos.Rows[oppilaitoksetCB.SelectedIndex]["OPostitoimipaikka"].ToString();
-            PuhelinLB.Text = oppilaitos.Rows[oppilaitoksetCB.SelectedIndex]["OPuhelin"].ToString();
+            OsoiteLB.Text = oppilaitos.Rows[OppilaitosCB.SelectedIndex]["OKatuosoite"].ToString();
+            PostinumeroLB.Text = oppilaitos.Rows[OppilaitosCB.SelectedIndex]["OPostinumero"].ToString();
+            PostitoimipaikkaLB.Text = oppilaitos.Rows[OppilaitosCB.SelectedIndex]["OPostitoimipaikka"].ToString();
+            PuhelinLB.Text = oppilaitos.Rows[OppilaitosCB.SelectedIndex]["OPuhelin"].ToString();
 
             // Фильтруем людей по OID
             DataRow[] rows = vastuuHenkilot.Select("OID = " + viite);
@@ -58,11 +58,11 @@ namespace _18._Tehtävä
         private void AvainhenkilötForm_Load(object sender, EventArgs e)
         {
             taytaOppilaitosTaulukko();
-            oppilaitoksetCB.DataSource = oppilaitos;
-            oppilaitoksetCB.DisplayMember = "ONimi";
-            oppilaitoksetCB.ValueMember = "OID";  // Чтобы легко получать OID
-
             taytaVastuuHenkilotTaulukko();
+
+            OppilaitosCB.DataSource = oppilaitos;
+            OppilaitosCB.DisplayMember = "ONimi";
+            OppilaitosCB.ValueMember = "OID";  // Чтобы легко получать OID
         }
 
         private void taytaOppilaitosTaulukko()
