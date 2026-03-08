@@ -1,3 +1,4 @@
+using System;
 using System.IO;
 
 namespace _14._Tehtävä___päiväkirja
@@ -7,7 +8,7 @@ namespace _14._Tehtävä___päiväkirja
         public PaivakirjaForm()
         {
             InitializeComponent();
-            string teksti = File.ReadAllText("#");
+            string teksti = File.ReadAllText(@"C:\Users\swans\Documents\GitHub\source\repos\NewRepo\14. Tehtävä - päiväkirja\TEXT.txt");
             SyottoTB.Text = teksti;
         }
 
@@ -17,7 +18,7 @@ namespace _14._Tehtävä___päiväkirja
             teksti += SyottoTB.Text;
             teksti += DateTime.Now.ToString("dd.MM.yyyy HH:mm") + "\n";
 
-            TextWriter text = new StreamWriter("#");
+            TextWriter text = new StreamWriter(@"C:\Users\swans\Documents\GitHub\source\repos\NewRepo\14. Tehtävä - päiväkirja\TEXT.txt");
             text.Write(teksti);
             text.Close();
             Application.Exit();
