@@ -24,25 +24,25 @@ namespace Hotelliohjelman
 
         private void manageClientsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ManageClientsForm manageCF = new ManageClientsForm();
+            ManageClientsForm ManageClientsForm = new ManageClientsForm();
 
-            manageCF.ShowDialog();
+            ManageClientsForm.ShowDialog();
         }
 
         private void manageRoomsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ManageRoomsForm manageRF = new ManageRoomsForm();
+            ManageRoomsForm ManageRoomsForm = new ManageRoomsForm();
 
-            manageRF.ShowDialog();
+            ManageRoomsForm.ShowDialog();
         }
 
         private void manageReservationsToolStripMenuItem_Click(object sender, EventArgs e)
 
         {
 
-            ManageReservationsForm manageRSVF = new ManageReservationsForm();
+            ManageReservationsForm ManageReservationsForm = new ManageReservationsForm();
 
-            manageRSVF.ShowDialog();
+            ManageReservationsForm.ShowDialog();
 
         }
     }

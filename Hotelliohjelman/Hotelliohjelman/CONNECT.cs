@@ -6,12 +6,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data;
+using System.Configuration;
 
 namespace Hotelliohjelman
 {
     class CONNECT
     {
-        private MySqlConnection connection = new MySqlConnection("server=localhost;port=3306;database=Hotelliohjelman");
+        private MySqlConnection connection = new MySqlConnection("server=localhost;port=3306;database=Hotelliohjelmandb;");
 
         public MySqlConnection getConnection()
         {

@@ -16,5 +16,12 @@ namespace Hotelliohjelman
         {
             InitializeComponent();
         }
+
+        private void buttonClearFields_Click(object sender, EventArgs e)
+        {
+            textBoxID.Text = "";
+            textBoxFN.Text = "";
+            // Removed clearing of controls that do not exist on this form
+        }
     }
 }

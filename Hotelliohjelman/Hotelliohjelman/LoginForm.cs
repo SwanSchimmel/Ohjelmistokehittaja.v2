@@ -18,6 +18,11 @@ namespace Hotelliohjelman
             InitializeComponent();
         }
 
+        private void textBoxPassword_TextChanged(object sender, EventArgs e)
+        {
+            // handler added to match designer event; no action required
+        }
+
         private void ButtonLogin_Click(object sender, EventArgs e)
         {
             CONNECT connect = new CONNECT();
@@ -36,29 +41,30 @@ namespace Hotelliohjelman
             adapter.SelectCommand = command;
             adapter.Fill(table);
 
+            // if the username and the password exists
             if (table.Rows.Count > 0)
             {
+                // show the main form
                 this.Hide();
-                MainForm mainForm = new MainForm();
-                mainForm.Show();
+                MainForm mform = new MainForm();
+                mform.Show();
             }
             else
             {
                 if (textBoxUsername.Text.Trim().Equals(""))
                 {
-                    MessageBox.Show("Please enter your username.", "Empty username", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Enter Your Username to Login", "Empty Username", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else if (textBoxPassword.Text.Trim().Equals(""))
                 {
-                    MessageBox.Show("Please enter your password.", "Empty password", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                 
-
+                    MessageBox.Show("Enter Your Password to Login", "Empty Password", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
-                    MessageBox.Show("Invalid username or password.", "Login failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("This Username Or Password Doesn't Exists", "Wrong Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
+
     }
 }
