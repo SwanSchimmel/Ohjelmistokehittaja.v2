@@ -54,7 +54,6 @@ namespace Hotelliohjelman
                  
 
                 }
-                
                 else
                 {
                     MessageBox.Show("Invalid username or password.", "Login failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
