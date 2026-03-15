@@ -29,23 +29,23 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.buttonClearFields = new System.Windows.Forms.Button();
-            this.buttonRemove = new System.Windows.Forms.Button();
-            this.buttonEdit = new System.Windows.Forms.Button();
-            this.buttonAddNewClient = new System.Windows.Forms.Button();
+            this.buttonRemoveRoom = new System.Windows.Forms.Button();
+            this.buttonEditRoom = new System.Windows.Forms.Button();
+            this.buttonAddNewRoom = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.textBoxPhoneRCL = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBoxRoomType = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.textBoxRoomN = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.YesradioButton = new System.Windows.Forms.RadioButton();
+            this.comboBoxRoomType = new System.Windows.Forms.ComboBox();
             this.NoradioButton = new System.Windows.Forms.RadioButton();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.YesradioButton = new System.Windows.Forms.RadioButton();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -61,15 +61,16 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Manage rooms";
             // 
-            // dataGridView1
+            // dataGridView2
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(491, 108);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(502, 413);
-            this.dataGridView1.TabIndex = 15;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Location = new System.Drawing.Point(491, 108);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.RowHeadersWidth = 51;
+            this.dataGridView2.RowTemplate.Height = 24;
+            this.dataGridView2.Size = new System.Drawing.Size(502, 413);
+            this.dataGridView2.TabIndex = 15;
+            this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // buttonClearFields
             // 
@@ -81,35 +82,38 @@
             this.buttonClearFields.Text = "Clear Fields";
             this.buttonClearFields.UseVisualStyleBackColor = true;
             // 
-            // buttonRemove
+            // buttonRemoveRoom
             // 
-            this.buttonRemove.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonRemove.Location = new System.Drawing.Point(358, 399);
-            this.buttonRemove.Name = "buttonRemove";
-            this.buttonRemove.Size = new System.Drawing.Size(112, 42);
-            this.buttonRemove.TabIndex = 13;
-            this.buttonRemove.Text = "Remove";
-            this.buttonRemove.UseVisualStyleBackColor = true;
+            this.buttonRemoveRoom.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonRemoveRoom.Location = new System.Drawing.Point(370, 399);
+            this.buttonRemoveRoom.Name = "buttonRemoveRoom";
+            this.buttonRemoveRoom.Size = new System.Drawing.Size(112, 42);
+            this.buttonRemoveRoom.TabIndex = 13;
+            this.buttonRemoveRoom.Text = "Remove";
+            this.buttonRemoveRoom.UseVisualStyleBackColor = true;
+            this.buttonRemoveRoom.Click += new System.EventHandler(this.buttonRemoveRoom_Click);
             // 
-            // buttonEdit
+            // buttonEditRoom
             // 
-            this.buttonEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonEdit.Location = new System.Drawing.Point(228, 399);
-            this.buttonEdit.Name = "buttonEdit";
-            this.buttonEdit.Size = new System.Drawing.Size(112, 42);
-            this.buttonEdit.TabIndex = 12;
-            this.buttonEdit.Text = "Edit";
-            this.buttonEdit.UseVisualStyleBackColor = true;
+            this.buttonEditRoom.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonEditRoom.Location = new System.Drawing.Point(252, 399);
+            this.buttonEditRoom.Name = "buttonEditRoom";
+            this.buttonEditRoom.Size = new System.Drawing.Size(112, 42);
+            this.buttonEditRoom.TabIndex = 12;
+            this.buttonEditRoom.Text = "Edit";
+            this.buttonEditRoom.UseVisualStyleBackColor = true;
+            this.buttonEditRoom.Click += new System.EventHandler(this.buttonEditRoom_Click);
             // 
-            // buttonAddNewClient
+            // buttonAddNewRoom
             // 
-            this.buttonAddNewClient.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonAddNewClient.Location = new System.Drawing.Point(30, 399);
-            this.buttonAddNewClient.Name = "buttonAddNewClient";
-            this.buttonAddNewClient.Size = new System.Drawing.Size(179, 42);
-            this.buttonAddNewClient.TabIndex = 11;
-            this.buttonAddNewClient.Text = "Add New Client";
-            this.buttonAddNewClient.UseVisualStyleBackColor = true;
+            this.buttonAddNewRoom.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonAddNewRoom.Location = new System.Drawing.Point(30, 399);
+            this.buttonAddNewRoom.Name = "buttonAddNewRoom";
+            this.buttonAddNewRoom.Size = new System.Drawing.Size(216, 42);
+            this.buttonAddNewRoom.TabIndex = 11;
+            this.buttonAddNewRoom.Text = "Add New Room";
+            this.buttonAddNewRoom.UseVisualStyleBackColor = true;
+            this.buttonAddNewRoom.Click += new System.EventHandler(this.buttonAddNewRoom_Click);
             // 
             // label5
             // 
@@ -138,14 +142,6 @@
             this.label4.Size = new System.Drawing.Size(89, 29);
             this.label4.TabIndex = 5;
             this.label4.Text = "Phone:";
-            // 
-            // textBoxRoomType
-            // 
-            this.textBoxRoomType.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBoxRoomType.Location = new System.Drawing.Point(160, 184);
-            this.textBoxRoomType.Name = "textBoxRoomType";
-            this.textBoxRoomType.Size = new System.Drawing.Size(310, 34);
-            this.textBoxRoomType.TabIndex = 4;
             // 
             // label3
             // 
@@ -187,17 +183,17 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.OrangeRed;
+            this.panel1.Controls.Add(this.comboBoxRoomType);
             this.panel1.Controls.Add(this.NoradioButton);
             this.panel1.Controls.Add(this.YesradioButton);
-            this.panel1.Controls.Add(this.dataGridView1);
+            this.panel1.Controls.Add(this.dataGridView2);
             this.panel1.Controls.Add(this.buttonClearFields);
-            this.panel1.Controls.Add(this.buttonRemove);
-            this.panel1.Controls.Add(this.buttonEdit);
-            this.panel1.Controls.Add(this.buttonAddNewClient);
+            this.panel1.Controls.Add(this.buttonRemoveRoom);
+            this.panel1.Controls.Add(this.buttonEditRoom);
+            this.panel1.Controls.Add(this.buttonAddNewRoom);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.textBoxPhoneRCL);
             this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.textBoxRoomType);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.textBoxRoomN);
             this.panel1.Controls.Add(this.label2);
@@ -208,19 +204,15 @@
             this.panel1.Size = new System.Drawing.Size(1022, 589);
             this.panel1.TabIndex = 1;
             // 
-            // YesradioButton
+            // comboBoxRoomType
             // 
-            this.YesradioButton.AutoSize = true;
-            this.YesradioButton.BackColor = System.Drawing.Color.Snow;
-            this.YesradioButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.YesradioButton.ForeColor = System.Drawing.Color.Green;
-            this.YesradioButton.Location = new System.Drawing.Point(170, 290);
-            this.YesradioButton.Name = "YesradioButton";
-            this.YesradioButton.Size = new System.Drawing.Size(76, 33);
-            this.YesradioButton.TabIndex = 16;
-            this.YesradioButton.TabStop = true;
-            this.YesradioButton.Text = "Yes";
-            this.YesradioButton.UseVisualStyleBackColor = false;
+            this.comboBoxRoomType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxRoomType.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.comboBoxRoomType.FormattingEnabled = true;
+            this.comboBoxRoomType.Location = new System.Drawing.Point(160, 189);
+            this.comboBoxRoomType.Name = "comboBoxRoomType";
+            this.comboBoxRoomType.Size = new System.Drawing.Size(310, 37);
+            this.comboBoxRoomType.TabIndex = 18;
             // 
             // NoradioButton
             // 
@@ -236,6 +228,21 @@
             this.NoradioButton.Text = "No";
             this.NoradioButton.UseVisualStyleBackColor = false;
             // 
+            // YesradioButton
+            // 
+            this.YesradioButton.AutoSize = true;
+            this.YesradioButton.BackColor = System.Drawing.Color.Snow;
+            this.YesradioButton.Checked = true;
+            this.YesradioButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.YesradioButton.ForeColor = System.Drawing.Color.Green;
+            this.YesradioButton.Location = new System.Drawing.Point(170, 290);
+            this.YesradioButton.Name = "YesradioButton";
+            this.YesradioButton.Size = new System.Drawing.Size(76, 33);
+            this.YesradioButton.TabIndex = 16;
+            this.YesradioButton.TabStop = true;
+            this.YesradioButton.Text = "Yes";
+            this.YesradioButton.UseVisualStyleBackColor = false;
+            // 
             // ManageRoomsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -245,7 +252,8 @@
             this.Name = "ManageRoomsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ManageRoomsForm";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.ManageRoomsForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -257,15 +265,14 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.Button buttonClearFields;
-        private System.Windows.Forms.Button buttonRemove;
-        private System.Windows.Forms.Button buttonEdit;
-        private System.Windows.Forms.Button buttonAddNewClient;
+        private System.Windows.Forms.Button buttonRemoveRoom;
+        private System.Windows.Forms.Button buttonEditRoom;
+        private System.Windows.Forms.Button buttonAddNewRoom;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBoxPhoneRCL;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBoxRoomType;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBoxRoomN;
         private System.Windows.Forms.Label label2;
@@ -273,5 +280,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.RadioButton NoradioButton;
         private System.Windows.Forms.RadioButton YesradioButton;
+        private System.Windows.Forms.ComboBox comboBoxRoomType;
     }
 }

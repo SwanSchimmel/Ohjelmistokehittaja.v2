@@ -19,8 +19,8 @@ namespace Hotelliohjelman
 
         private void buttonClearFields_Click(object sender, EventArgs e)
         {
-            textBoxID.Text = "";
-            textBoxFN.Text = "";
+            textBoxReservID.Text = "";
+            textBoxClientID.Text = "";
             // Removed clearing of controls that do not exist on this form
         }
     }

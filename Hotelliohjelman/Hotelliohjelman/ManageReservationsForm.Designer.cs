@@ -31,23 +31,23 @@
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.buttonClearFields = new System.Windows.Forms.Button();
-            this.buttonRemove = new System.Windows.Forms.Button();
+            this.buttonRemoveReserve = new System.Windows.Forms.Button();
             this.buttonEdit = new System.Windows.Forms.Button();
-            this.buttonAddNewClient = new System.Windows.Forms.Button();
+            this.buttonAddNewReserv = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBoxFN = new System.Windows.Forms.TextBox();
+            this.textBoxClientID = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBoxID = new System.Windows.Forms.TextBox();
+            this.textBoxReservID = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label7 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.comboBoxRoomNumber = new System.Windows.Forms.ComboBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -85,15 +85,15 @@
             this.buttonClearFields.UseVisualStyleBackColor = true;
             this.buttonClearFields.Click += new System.EventHandler(this.buttonClearFields_Click);
             // 
-            // buttonRemove
+            // buttonRemoveReserve
             // 
-            this.buttonRemove.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonRemove.Location = new System.Drawing.Point(358, 442);
-            this.buttonRemove.Name = "buttonRemove";
-            this.buttonRemove.Size = new System.Drawing.Size(112, 42);
-            this.buttonRemove.TabIndex = 13;
-            this.buttonRemove.Text = "Remove";
-            this.buttonRemove.UseVisualStyleBackColor = true;
+            this.buttonRemoveReserve.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonRemoveReserve.Location = new System.Drawing.Point(358, 442);
+            this.buttonRemoveReserve.Name = "buttonRemoveReserve";
+            this.buttonRemoveReserve.Size = new System.Drawing.Size(112, 42);
+            this.buttonRemoveReserve.TabIndex = 13;
+            this.buttonRemoveReserve.Text = "Remove";
+            this.buttonRemoveReserve.UseVisualStyleBackColor = true;
             // 
             // buttonEdit
             // 
@@ -105,15 +105,15 @@
             this.buttonEdit.Text = "Edit";
             this.buttonEdit.UseVisualStyleBackColor = true;
             // 
-            // buttonAddNewClient
+            // buttonAddNewReserv
             // 
-            this.buttonAddNewClient.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonAddNewClient.Location = new System.Drawing.Point(30, 442);
-            this.buttonAddNewClient.Name = "buttonAddNewClient";
-            this.buttonAddNewClient.Size = new System.Drawing.Size(179, 42);
-            this.buttonAddNewClient.TabIndex = 11;
-            this.buttonAddNewClient.Text = "Add New Client";
-            this.buttonAddNewClient.UseVisualStyleBackColor = true;
+            this.buttonAddNewReserv.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonAddNewReserv.Location = new System.Drawing.Point(30, 442);
+            this.buttonAddNewReserv.Name = "buttonAddNewReserv";
+            this.buttonAddNewReserv.Size = new System.Drawing.Size(192, 42);
+            this.buttonAddNewReserv.TabIndex = 11;
+            this.buttonAddNewReserv.Text = "Add New Room";
+            this.buttonAddNewReserv.UseVisualStyleBackColor = true;
             // 
             // label6
             // 
@@ -145,13 +145,13 @@
             this.label4.TabIndex = 5;
             this.label4.Text = "Room Type:";
             // 
-            // textBoxFN
+            // textBoxClientID
             // 
-            this.textBoxFN.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBoxFN.Location = new System.Drawing.Point(187, 184);
-            this.textBoxFN.Name = "textBoxFN";
-            this.textBoxFN.Size = new System.Drawing.Size(107, 34);
-            this.textBoxFN.TabIndex = 4;
+            this.textBoxClientID.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBoxClientID.Location = new System.Drawing.Point(187, 184);
+            this.textBoxClientID.Name = "textBoxClientID";
+            this.textBoxClientID.Size = new System.Drawing.Size(126, 34);
+            this.textBoxClientID.TabIndex = 4;
             // 
             // label3
             // 
@@ -163,13 +163,13 @@
             this.label3.TabIndex = 3;
             this.label3.Text = "Client ID:";
             // 
-            // textBoxID
+            // textBoxReservID
             // 
-            this.textBoxID.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBoxID.Location = new System.Drawing.Point(187, 131);
-            this.textBoxID.Name = "textBoxID";
-            this.textBoxID.Size = new System.Drawing.Size(107, 34);
-            this.textBoxID.TabIndex = 2;
+            this.textBoxReservID.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBoxReservID.Location = new System.Drawing.Point(187, 131);
+            this.textBoxReservID.Name = "textBoxReservID";
+            this.textBoxReservID.Size = new System.Drawing.Size(126, 34);
+            this.textBoxReservID.TabIndex = 2;
             // 
             // label2
             // 
@@ -195,20 +195,20 @@
             this.panel1.BackColor = System.Drawing.Color.OrangeRed;
             this.panel1.Controls.Add(this.dateTimePicker2);
             this.panel1.Controls.Add(this.dateTimePicker1);
-            this.panel1.Controls.Add(this.comboBox2);
+            this.panel1.Controls.Add(this.comboBoxRoomNumber);
             this.panel1.Controls.Add(this.comboBox1);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.dataGridView1);
             this.panel1.Controls.Add(this.buttonClearFields);
-            this.panel1.Controls.Add(this.buttonRemove);
+            this.panel1.Controls.Add(this.buttonRemoveReserve);
             this.panel1.Controls.Add(this.buttonEdit);
-            this.panel1.Controls.Add(this.buttonAddNewClient);
+            this.panel1.Controls.Add(this.buttonAddNewReserv);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.textBoxFN);
+            this.panel1.Controls.Add(this.textBoxClientID);
             this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.textBoxID);
+            this.panel1.Controls.Add(this.textBoxReservID);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -216,6 +216,49 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1014, 575);
             this.panel1.TabIndex = 1;
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.CustomFormat = "dd/MM/yyyy";
+            this.dateTimePicker2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker2.Location = new System.Drawing.Point(192, 390);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(278, 27);
+            this.dateTimePicker2.TabIndex = 20;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.CustomFormat = "dd/MM/yyyy";
+            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker1.Location = new System.Drawing.Point(190, 344);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(280, 27);
+            this.dateTimePicker1.TabIndex = 19;
+            // 
+            // comboBoxRoomNumber
+            // 
+            this.comboBoxRoomNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.comboBoxRoomNumber.FormattingEnabled = true;
+            this.comboBoxRoomNumber.Location = new System.Drawing.Point(192, 288);
+            this.comboBoxRoomNumber.Name = "comboBoxRoomNumber";
+            this.comboBoxRoomNumber.Size = new System.Drawing.Size(278, 37);
+            this.comboBoxRoomNumber.TabIndex = 18;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "single",
+            "double",
+            "family",
+            "suite"});
+            this.comboBox1.Location = new System.Drawing.Point(190, 245);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(280, 37);
+            this.comboBox1.TabIndex = 17;
             // 
             // label7
             // 
@@ -227,46 +270,11 @@
             this.label7.TabIndex = 16;
             this.label7.Text = "Date Out:";
             // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "single",
-            "double",
-            "family",
-            "suite"});
-            this.comboBox1.Location = new System.Drawing.Point(190, 244);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 24);
-            this.comboBox1.TabIndex = 17;
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(190, 293);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 24);
-            this.comboBox2.TabIndex = 18;
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(190, 344);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 22);
-            this.dateTimePicker1.TabIndex = 19;
-            // 
-            // dateTimePicker2
-            // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(187, 397);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(200, 22);
-            this.dateTimePicker2.TabIndex = 20;
-            // 
             // ManageReservationsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1014, 575);
+            this.ClientSize = new System.Drawing.Size(811, 460);
             this.Controls.Add(this.panel1);
             this.Name = "ManageReservationsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -285,19 +293,19 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button buttonClearFields;
-        private System.Windows.Forms.Button buttonRemove;
+        private System.Windows.Forms.Button buttonRemoveReserve;
         private System.Windows.Forms.Button buttonEdit;
-        private System.Windows.Forms.Button buttonAddNewClient;
+        private System.Windows.Forms.Button buttonAddNewReserv;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBoxFN;
+        private System.Windows.Forms.TextBox textBoxClientID;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBoxID;
+        private System.Windows.Forms.TextBox textBoxReservID;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox comboBoxRoomNumber;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;

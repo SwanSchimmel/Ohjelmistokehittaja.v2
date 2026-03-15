@@ -44,29 +44,30 @@
             this.manageReservationsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(484, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(484, 28);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // manageClientsToolStripMenuItem
             // 
             this.manageClientsToolStripMenuItem.Name = "manageClientsToolStripMenuItem";
-            this.manageClientsToolStripMenuItem.Size = new System.Drawing.Size(101, 20);
+            this.manageClientsToolStripMenuItem.Size = new System.Drawing.Size(125, 24);
             this.manageClientsToolStripMenuItem.Text = "Manage Clients";
             this.manageClientsToolStripMenuItem.Click += new System.EventHandler(this.manageClientsToolStripMenuItem_Click);
             // 
             // manageRoomsToolStripMenuItem
             // 
             this.manageRoomsToolStripMenuItem.Name = "manageRoomsToolStripMenuItem";
-            this.manageRoomsToolStripMenuItem.Size = new System.Drawing.Size(102, 20);
+            this.manageRoomsToolStripMenuItem.Size = new System.Drawing.Size(127, 24);
             this.manageRoomsToolStripMenuItem.Text = "Manage Rooms";
+            this.manageRoomsToolStripMenuItem.Click += new System.EventHandler(this.manageRoomsToolStripMenuItem_Click);
             // 
             // manageReservationsToolStripMenuItem
             // 
             this.manageReservationsToolStripMenuItem.Name = "manageReservationsToolStripMenuItem";
-            this.manageReservationsToolStripMenuItem.Size = new System.Drawing.Size(131, 20);
+            this.manageReservationsToolStripMenuItem.Size = new System.Drawing.Size(164, 24);
             this.manageReservationsToolStripMenuItem.Text = "Manage Reservations";
-            this.manageReservationsToolStripMenuItem.Click += new System.EventHandler(this.manageRoomsToolStripMenuItem_Click);
+            this.manageReservationsToolStripMenuItem.Click += new System.EventHandler(this.manageReservationsToolStripMenuItem_Click);
             // 
             // MainForm
             // 
