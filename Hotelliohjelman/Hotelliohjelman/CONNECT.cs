@@ -12,7 +12,7 @@ namespace Hotelliohjelman
 {
     class CONNECT
     {
-        private MySqlConnection connection = new MySqlConnection("server=localhost;port=3306;database=Hotelliohjelmandb;");
+        private MySqlConnection connection = new MySqlConnection("server=localhost;user=root;password=;port=3306;database=hotelliohjelmandb;");
 
         public MySqlConnection getConnection()
         {
