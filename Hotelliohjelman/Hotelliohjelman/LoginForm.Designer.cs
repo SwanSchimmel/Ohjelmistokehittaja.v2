@@ -47,17 +47,19 @@
             this.panel1.BackColor = System.Drawing.Color.Gold;
             this.panel1.Controls.Add(this.label1);
             this.panel1.ForeColor = System.Drawing.Color.Black;
-            this.panel1.Location = new System.Drawing.Point(13, 232);
+            this.panel1.Location = new System.Drawing.Point(10, 188);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(460, 105);
+            this.panel1.Size = new System.Drawing.Size(345, 85);
             this.panel1.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(88, 14);
+            this.label1.Location = new System.Drawing.Point(66, 11);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(262, 71);
+            this.label1.Size = new System.Drawing.Size(196, 58);
             this.label1.TabIndex = 0;
             this.label1.Text = "Sign In";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -70,9 +72,11 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.textBoxUsername);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox1.Location = new System.Drawing.Point(13, 343);
+            this.groupBox1.Location = new System.Drawing.Point(10, 279);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(459, 266);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Size = new System.Drawing.Size(344, 216);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             // 
@@ -82,9 +86,10 @@
             this.buttonLogin.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonLogin.ForeColor = System.Drawing.Color.White;
-            this.buttonLogin.Location = new System.Drawing.Point(17, 181);
+            this.buttonLogin.Location = new System.Drawing.Point(13, 147);
+            this.buttonLogin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonLogin.Name = "buttonLogin";
-            this.buttonLogin.Size = new System.Drawing.Size(427, 64);
+            this.buttonLogin.Size = new System.Drawing.Size(320, 52);
             this.buttonLogin.TabIndex = 3;
             this.buttonLogin.Text = "Login";
             this.buttonLogin.UseVisualStyleBackColor = false;
@@ -93,17 +98,19 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(22, 107);
+            this.label3.Location = new System.Drawing.Point(16, 87);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(146, 32);
+            this.label3.Size = new System.Drawing.Size(114, 26);
             this.label3.TabIndex = 3;
             this.label3.Text = "Password:";
             // 
             // textBoxPassword
             // 
-            this.textBoxPassword.Location = new System.Drawing.Point(198, 107);
+            this.textBoxPassword.Location = new System.Drawing.Point(148, 87);
+            this.textBoxPassword.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxPassword.Name = "textBoxPassword";
-            this.textBoxPassword.Size = new System.Drawing.Size(246, 38);
+            this.textBoxPassword.Size = new System.Drawing.Size(186, 32);
             this.textBoxPassword.TabIndex = 2;
             this.textBoxPassword.Text = "admin";
             this.textBoxPassword.UseSystemPasswordChar = true;
@@ -112,42 +119,47 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(22, 46);
+            this.label2.Location = new System.Drawing.Point(16, 37);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(159, 32);
+            this.label2.Size = new System.Drawing.Size(125, 26);
             this.label2.TabIndex = 1;
             this.label2.Text = "User name:";
             // 
             // textBoxUsername
             // 
-            this.textBoxUsername.Location = new System.Drawing.Point(198, 46);
+            this.textBoxUsername.Location = new System.Drawing.Point(148, 37);
+            this.textBoxUsername.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxUsername.Name = "textBoxUsername";
-            this.textBoxUsername.Size = new System.Drawing.Size(246, 38);
+            this.textBoxUsername.Size = new System.Drawing.Size(186, 32);
             this.textBoxUsername.TabIndex = 0;
             this.textBoxUsername.Text = "admin";
             // 
             // pictureLogin
             // 
             this.pictureLogin.BackgroundImage = global::Hotelliohjelman.Properties.Resources.images3;
+            this.pictureLogin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pictureLogin.ErrorImage = global::Hotelliohjelman.Properties.Resources.images3;
-            this.pictureLogin.Image = global::Hotelliohjelman.Properties.Resources.images3;
-            this.pictureLogin.Location = new System.Drawing.Point(131, 9);
+            this.pictureLogin.Image = global::Hotelliohjelman.Properties.Resources.images2;
+            this.pictureLogin.Location = new System.Drawing.Point(95, 11);
+            this.pictureLogin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureLogin.Name = "pictureLogin";
-            this.pictureLogin.Size = new System.Drawing.Size(232, 217);
-            this.pictureLogin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureLogin.Size = new System.Drawing.Size(186, 173);
+            this.pictureLogin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureLogin.TabIndex = 0;
             this.pictureLogin.TabStop = false;
             // 
             // LoginForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkGreen;
-            this.ClientSize = new System.Drawing.Size(485, 623);
+            this.ClientSize = new System.Drawing.Size(372, 520);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pictureLogin);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LoginForm";
@@ -156,7 +168,6 @@
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureLogin)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MySql.Data.MySqlClient;
-using System.Data.SqlClient;
 using System.Data;
+using MySql.Data.MySqlClient;
 
 namespace Hotelliohjelman
 {
@@ -13,13 +8,12 @@ namespace Hotelliohjelman
     {
         CONNECT CONNECT = new CONNECT();
 
-        public DataTable roomTypeList()
+        // Получить все комнаты
+        public DataTable GetRooms()
         {
-            MySqlDataAdapter adapter = new MySqlDataAdapter();
             DataTable table = new DataTable();
-            MySqlCommand command = new MySqlCommand("SELECT * FROM `clients`", CONNECT.getConnection());
-
-            adapter.SelectCommand = command;
+            MySqlCommand command = new MySqlCommand("SELECT * FROM `rooms`", CONNECT.getConnection());
+            MySqlDataAdapter adapter = new MySqlDataAdapter(command);
 
             CONNECT.openConnection();
             adapter.Fill(table);
@@ -28,38 +22,26 @@ namespace Hotelliohjelman
             return table;
         }
 
-        // create a function to edit the selected room
-
-        public bool editRoom(int number, int type, string phone, string free)
+        // Получить список типов комнат
+        public DataTable GetRoomTypes()
         {
-            MySqlCommand command = new MySqlCommand();
-
-            String editQuery = "UPDATE `rooms` SET `type`=@tp, `phone`=@phn, `free`=@fr WHERE `number`=@num";
-
-            command.CommandText = editQuery;
-
-            command.Connection = CONNECT.getConnection();
-
-            // @num,@tp,@phn,@fr
-            command.Parameters.Add("@num", MySqlDbType.Int32).Value = number;
-            command.Parameters.Add("@tp", MySqlDbType.Int32).Value = type;
-            command.Parameters.Add("@phn", MySqlDbType.VarChar).Value = phone;
-            command.Parameters.Add("@fr", MySqlDbType.VarChar).Value = free;
+            DataTable table = new DataTable();
+            MySqlCommand command = new MySqlCommand("SELECT * FROM `rooms_category`", CONNECT.getConnection());
+            MySqlDataAdapter adapter = new MySqlDataAdapter(command);
 
             CONNECT.openConnection();
-
-            bool removed = command.ExecuteNonQuery() == 1;
-
+            adapter.Fill(table);
             CONNECT.closeConnection();
-            return removed;
+
+            return table;
         }
 
-        internal bool buttonAddNewRoom(int number, int type, string phone, string free)
+        // Добавить комнату
+        public bool AddRoom(int number, int type, string phone, string free)
         {
-            MySqlCommand command = new MySqlCommand();
-            String insertQuery = "INSERT INTO `rooms`(`number`, `type`, `phone`, `free`) VALUES (@num,@tp,@phn,@fr)";
-            command.CommandText = insertQuery;
-            command.Connection = CONNECT.getConnection();
+            MySqlCommand command = new MySqlCommand(
+                "INSERT INTO `rooms`(`number`, `type`, `phone`, `free`) VALUES (@num,@tp,@phn,@fr)",
+                CONNECT.getConnection());
 
             command.Parameters.Add("@num", MySqlDbType.Int32).Value = number;
             command.Parameters.Add("@tp", MySqlDbType.Int32).Value = type;
@@ -67,78 +49,62 @@ namespace Hotelliohjelman
             command.Parameters.Add("@fr", MySqlDbType.VarChar).Value = free;
 
             CONNECT.openConnection();
-
             bool inserted = command.ExecuteNonQuery() == 1;
-
             CONNECT.closeConnection();
+
             return inserted;
         }
 
-
-        public bool addRoom(String number, String type, String phone, String free)
+        // Редактировать комнату
+        public bool EditRoom(int number, int type, string phone, string free)
         {
-            MySqlCommand command = new MySqlCommand();
-            String updateQuery = "INSERT INTO `rooms`(`number`, `type`, `phone`, `free`) VALUES (@num,@tp,@phn,@fr)";
-            command.CommandText = updateQuery;
-            command.Connection = CONNECT.getConnection();
+            MySqlCommand command = new MySqlCommand(
+                "UPDATE `rooms` SET `type`=@tp, `phone`=@phn, `free`=@fr WHERE `number`=@num",
+                CONNECT.getConnection());
 
-           
             command.Parameters.Add("@num", MySqlDbType.Int32).Value = number;
             command.Parameters.Add("@tp", MySqlDbType.Int32).Value = type;
             command.Parameters.Add("@phn", MySqlDbType.VarChar).Value = phone;
             command.Parameters.Add("@fr", MySqlDbType.VarChar).Value = free;
 
             CONNECT.openConnection();
-
             bool updated = command.ExecuteNonQuery() == 1;
-
             CONNECT.closeConnection();
+
             return updated;
         }
 
-        // Return all rooms as a DataTable (used to bind to DataGridView)
-        public DataTable addRoom()
+        // Удалить комнату
+        public bool RemoveRoom(int number)
         {
-            MySqlDataAdapter adapter = new MySqlDataAdapter();
-            DataTable table = new DataTable();
-            MySqlCommand command = new MySqlCommand("SELECT * FROM `rooms`", CONNECT.getConnection());
-
-            adapter.SelectCommand = command;
-
-            CONNECT.openConnection();
-            adapter.Fill(table);
-            CONNECT.closeConnection();
-
-            return table;
-        }
-
-        // Alias to get the rooms list
-        public DataTable getRooms()
-        {
-            return addRoom();
-        }
-
-        public bool removeRoom(int number)
-        {
-            MySqlCommand command = new MySqlCommand();
-            String deleteQuery = "DELETE FROM `rooms` WHERE `number`=@num";
-            command.CommandText = deleteQuery;
-            command.Connection = CONNECT.getConnection();
+            MySqlCommand command = new MySqlCommand(
+                "DELETE FROM `rooms` WHERE `number`=@num",
+                CONNECT.getConnection());
 
             command.Parameters.Add("@num", MySqlDbType.Int32).Value = number;
 
             CONNECT.openConnection();
+            bool removed = command.ExecuteNonQuery() == 1;
+            CONNECT.closeConnection();
 
-            if (command.ExecuteNonQuery() == 1)
-            {
-                CONNECT.closeConnection();
-                return true;
-            }
-            else
-            {
-                CONNECT.closeConnection();
-                return false;
-            }
+            return removed;
+        }
+
+       
+
+        // Установить свободность комнаты: "Yes" или "No"
+        public bool SetRoomFree(int roomNumber, string freeStatus)
+        {
+            MySqlCommand command = new MySqlCommand();
+            command.Connection = CONNECT.getConnection();
+            command.CommandText = "UPDATE `rooms` SET `free`=@status WHERE `number`=@rnum";
+            command.Parameters.Add("@status", MySqlDbType.VarChar).Value = freeStatus;
+            command.Parameters.Add("@rnum", MySqlDbType.Int32).Value = roomNumber;
+
+            CONNECT.openConnection();
+            bool result = command.ExecuteNonQuery() == 1;
+            CONNECT.closeConnection();
+            return result;
         }
     }
 }

@@ -1,5 +1,11 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
+using System.Collections.Generic;
+using System.Data.SqlClient;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Data;
 
 namespace Hotelliohjelman
@@ -87,6 +93,38 @@ namespace Hotelliohjelman
 
             CONNECT.closeConnection();
             return removed;
+        }
+
+        // Получить все комнаты
+        public DataTable getAllRooms()
+        {
+            MySqlCommand command = new MySqlCommand("SELECT * FROM `rooms`", CONNECT.getConnection());
+            MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+            DataTable table = new DataTable();
+            adapter.Fill(table);
+            return table;
+        }
+
+        // Проверка, свободна ли комната
+        public bool isRoomFree(int roomNumber)
+        {
+            MySqlCommand command = new MySqlCommand("SELECT `Free` FROM `rooms` WHERE `RoomNumber`=@rnm", CONNECT.getConnection());
+            command.Parameters.Add("@rnm", MySqlDbType.Int32).Value = roomNumber;
+            CONNECT.openConnection();
+            var result = command.ExecuteScalar()?.ToString();
+            CONNECT.closeConnection();
+            return result == "Yes";
+        }
+
+        // Установить статус комнаты Free = "Yes"/"No"
+        public void SetRoomFree(int roomNumber, string status)
+        {
+            MySqlCommand command = new MySqlCommand("UPDATE `rooms` SET `Free`=@status WHERE `RoomNumber`=@rnm", CONNECT.getConnection());
+            command.Parameters.Add("@status", MySqlDbType.VarChar).Value = status;
+            command.Parameters.Add("@rnm", MySqlDbType.Int32).Value = roomNumber;
+            CONNECT.openConnection();
+            command.ExecuteNonQuery();
+            CONNECT.closeConnection();
         }
     }
 }
