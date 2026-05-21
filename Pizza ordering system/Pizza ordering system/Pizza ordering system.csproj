@@ -52,7 +52,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Cart.cs" />
     <Compile Include="CartForm.cs">
       <SubType>Form</SubType>
     </Compile>

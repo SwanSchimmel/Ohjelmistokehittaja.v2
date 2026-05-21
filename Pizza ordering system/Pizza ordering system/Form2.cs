@@ -7,34 +7,33 @@ namespace Pizza_ordering_system
 {
     public partial class Form2 : Form
     {
-        public Form2()
+        private List<Pizza> cartItems;
+
+        public Form2(List<Pizza> cart)
         {
             InitializeComponent();
+            cartItems = cart ?? new List<Pizza>();
         }
 
         private void Form2_Load(object sender, EventArgs e)
         {
-            // PIZZA TYPES
-            comboBoxPizza.Items.Add("Pepperoni");
-            comboBoxPizza.Items.Add("Hawaii");
-            comboBoxPizza.Items.Add("BBQ Chicken");
-
-            // SIZES
-            comboBoxSize.Items.Add("Small");
-            comboBoxSize.Items.Add("Medium");
-            comboBoxSize.Items.Add("Large");
-
-            // TOPPINGS
-            checkedListBoxToppings.Items.Add("Extra Cheese");
-            checkedListBoxToppings.Items.Add("Mushrooms");
-            checkedListBoxToppings.Items.Add("Olives");
+            comboBoxPizza.Items.AddRange(new[] { "Pepperoni", "Hawaii", "BBQ Chicken" });
+            comboBoxSize.Items.AddRange(new[] { "Small", "Medium", "Large" });
+            checkedListBoxToppings.Items.AddRange(new[] { "Extra Cheese", "Mushrooms", "Olives" });
         }
 
         private void buttonAddToCart_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(comboBoxPizza.Text) || string.IsNullOrEmpty(comboBoxSize.Text))
             {
-                MessageBox.Show("Выберите тип пиццы и размер!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Выберите тип пиццы и размер!", "Ошибка");
+                return;
+            }
+
+            int quantity = (int)numericUpDownQty.Value;
+            if (quantity <= 0)
+            {
+                MessageBox.Show("Выберите количество больше 0!", "Ошибка");
                 return;
             }
 
@@ -42,36 +41,30 @@ namespace Pizza_ordering_system
             {
                 Name = comboBoxPizza.Text,
                 Size = comboBoxSize.Text,
-                Quantity = (int)numericUpDownQty.Value,
+                Quantity = quantity,
                 Toppings = new List<string>()
             };
 
             foreach (var item in checkedListBoxToppings.CheckedItems)
-            {
                 pizza.Toppings.Add(item.ToString());
-            }
 
             pizza.Price = CalculatePrice(pizza);
 
-            Cart.Items.Add(pizza);                    // ← ИСПРАВЛЕНО
+            cartItems.Add(pizza);
 
-            MessageBox.Show("Пицца добавлена в корзину!", "Успех", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Пицца добавлена в корзину!");
 
-            // Опционально: очистить выбор
-            // checkedListBoxToppings.ClearSelected();
+            // Открываем CartForm сразу после добавления
+            CartForm cartForm = new CartForm(cartItems);
+            cartForm.Show();
+            this.Hide();
         }
 
         private double CalculatePrice(Pizza pizza)
         {
-            double price = 0;
-
-            if (pizza.Size == "Small") price = 8;
-            else if (pizza.Size == "Medium") price = 10;
-            else if (pizza.Size == "Large") price = 12;
-
+            double price = pizza.Size == "Small" ? 8 : pizza.Size == "Medium" ? 10 : 12;
             price += pizza.Toppings.Count * 1.5;
             price *= pizza.Quantity;
-
             return price;
         }
     }

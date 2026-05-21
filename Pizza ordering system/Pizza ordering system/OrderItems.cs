@@ -11,7 +11,7 @@ namespace Pizza_ordering_system
 {
     internal class OrderItems
     {
-        CONNECT connect = new CONNECT();
+        private CONNECT connect = new CONNECT();
 
         public void AddItem(int orderId, Pizza pizza)
         {

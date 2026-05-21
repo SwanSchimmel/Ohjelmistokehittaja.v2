@@ -84,6 +84,11 @@
             // 
             this.numericUpDownQty.Location = new System.Drawing.Point(347, 285);
             this.numericUpDownQty.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
+            this.numericUpDownQty.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.numericUpDownQty.Name = "numericUpDownQty";
             this.numericUpDownQty.Size = new System.Drawing.Size(335, 43);
             this.numericUpDownQty.TabIndex = 3;

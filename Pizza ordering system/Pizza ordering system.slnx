@@ -1,6 +1,4 @@
 <Solution>
-  <Folder Name="/Solution Items/">
-    <File Path="MenuForm.cs" />
-  </Folder>
+  <Folder Name="/Solution Items/" />
   <Project Path="Pizza ordering system/Pizza ordering system.csproj" Id="8ce735b8-04d4-46dd-bd93-89a4c7d7af64" />
 </Solution>

@@ -84,16 +84,18 @@
             // labelTitle
             // 
             this.labelTitle.AutoSize = true;
-            this.labelTitle.Location = new System.Drawing.Point(240, 93);
+            this.labelTitle.Font = new System.Drawing.Font("Microsoft YaHei", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.labelTitle.Location = new System.Drawing.Point(291, 52);
             this.labelTitle.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.labelTitle.Name = "labelTitle";
-            this.labelTitle.Size = new System.Drawing.Size(79, 29);
+            this.labelTitle.Size = new System.Drawing.Size(223, 36);
             this.labelTitle.TabIndex = 4;
-            this.labelTitle.Text = "label1";
+            this.labelTitle.Text = "Make an order:";
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.ClientSize = new System.Drawing.Size(793, 537);
