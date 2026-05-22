@@ -1,70 +1,55 @@
-
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using System.Threading.Tasks;   
+using System.Text;
 
 namespace _5._Harjoitus
 {
     public partial class LukujenJarjestysFM : Form
     {
-        private readonly List<int> jono = new List<int>();
+        List<int> jono = new List<int>();
 
         public LukujenJarjestysFM()
         {
             InitializeComponent();
         }
+
         private void uusiLukuTB_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)Keys.Enter)
             {
-                e.Handled = true;  
-
-                string syote = uusiLukuTB.Text.Trim();
-
-                if (syote == "-999")
+                if (uusiLukuTB.Text == "-999")
                 {
-                    VastausLB.Text = "";  
+                    VastausLB.Text = "";
 
-                    int[] taulukko = jono.ToArray();     
-                    Array.Sort(taulukko);                
+                    int[] array = jono.ToArray();
 
-                    foreach (var jasen in taulukko)
+                    Array.Sort(array);
+
+                    foreach (var member in array)
                     {
-                        VastausLB.Text += jasen + "  ";  
+                        VastausLB.Text += member + " ";
                     }
 
-                    VastausLB.Visible = true;            
-                    // jono.Clear();                     // ← можно раскомментировать, если нужно очистить после вывода
+                    VastausLB.Visible = true;
                 }
                 else
                 {
-                    if (int.TryParse(syote, out int luku))
-                    {
-                        jono.Add(luku);
-                        uusiLukuTB.Text = "";        
-                    }
-                    else
-                    {
-                        
-                        VastausLB.Text = "Virhe: anna kokonaisluku!";
-                        VastausLB.Visible = true;
-                    }
+                    jono.Add(Int32.Parse(uusiLukuTB.Text));
+                    uusiLukuTB.Text = ""; 
                 }
             }
 
-            
-            else if (e.KeyChar == (char)Keys.Escape)
+            if (e.KeyChar == (char)Keys.Escape)
             {
-                TyhjaLomake();   
+                EmptyForm();
             }
         }
 
-        private void TyhjaLomake()
+        private void EmptyForm()
         {
             uusiLukuTB.Text = "";
-           
         }
-
-
     }
 }
