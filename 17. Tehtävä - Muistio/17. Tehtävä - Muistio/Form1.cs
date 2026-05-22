@@ -20,7 +20,7 @@ namespace _17._Tehtävä___Muistio
         private void uusiToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
-         
+
             if (rikasTB.Modified)
             {
                 DialogResult dr = MessageBox.Show("Сохранить изменения?", "Muistio",
@@ -38,7 +38,7 @@ namespace _17._Tehtävä___Muistio
             rikasTB.Modified = false;
         }
 
-        
+
 
         private void avaaToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -112,8 +112,17 @@ namespace _17._Tehtävä___Muistio
 
         private void tulostaToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            printPreviewDialog1.Document = printDocument1;
+
+            if (printDialog1.ShowDialog() == DialogResult.OK)
+
+            {
+                printDocument1.Print();
+
+            }
 
         }
+
 
         private void poistuToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -131,23 +140,33 @@ namespace _17._Tehtävä___Muistio
 
         private void kumoaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            rikasTB.Undo();  // Отмена последнего действия.
+            rikasTB.Undo();
         }
 
         private void teeUudelleenToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            rikasTB.Redo();  // Повтор отменённого.
+            rikasTB.Redo();
         }
 
         private void leikkaaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            rikasTB.Cut();  // Вырезать выделенное в буфер.
+            rikasTB.Cut();
         }
 
         // Аналогично для Copy, Paste, SelectAll.
         private void poistaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            rikasTB.SelectedText = "";  // Удалить выделенное.
+            rikasTB.SelectedText = "";
+        }
+
+        private void tietoaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(
+                "By Me",
+                "Tietoa",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information
+            );
         }
     }
 }

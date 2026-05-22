@@ -241,6 +241,7 @@
             tietoaToolStripMenuItem.Name = "tietoaToolStripMenuItem";
             tietoaToolStripMenuItem.Size = new Size(65, 24);
             tietoaToolStripMenuItem.Text = "Tietoa";
+            tietoaToolStripMenuItem.Click += tietoaToolStripMenuItem_Click;
             // 
             // rikasTB
             // 
